@@ -1,593 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GramBiz - Rural Entrepreneurship Platform</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #f7f8f2;
-    color: #26382b;
-}
-
-/* NAVBAR */
-.navbar {
-    height: 72px;
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 6%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-}
-
-.logo {
-    font-size: 25px;
-    font-weight: 800;
-    color: #286b45;
-}
-
-.logo span {
-    color: #d28a25;
-}
-
-.nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #37463b;
-    font-weight: 600;
-}
-
-.nav-links a:hover {
-    color: #286b45;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.lang-btn {
-    border: 1px solid #286b45;
-    background: white;
-    color: #286b45;
-    padding: 8px 14px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 700;
-}
-
-.cart {
-    background: #286b45;
-    color: white;
-    padding: 9px 15px;
-    border-radius: 20px;
-}
-
-/* HERO */
-.hero {
-    min-height: 570px;
-    padding: 80px 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background:
-        linear-gradient(100deg, rgba(242,248,231,.98), rgba(242,248,231,.78)),
-        radial-gradient(circle at 80% 30%, #dcecc8, transparent 35%);
-}
-
-.hero-text {
-    max-width: 650px;
-}
-
-.tag {
-    display: inline-block;
-    background: #e5f1df;
-    color: #286b45;
-    padding: 9px 16px;
-    border-radius: 30px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: clamp(40px, 6vw, 68px);
-    line-height: 1.05;
-    margin-bottom: 22px;
-}
-
-.hero h1 span {
-    color: #286b45;
-}
-
-.hero p {
-    font-size: 19px;
-    line-height: 1.7;
-    color: #59645b;
-    margin-bottom: 30px;
-}
-
-.buttons {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 14px 24px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-    font-size: 15px;
-}
-
-.primary {
-    background: #286b45;
-    color: white;
-}
-
-.secondary {
-    background: white;
-    color: #286b45;
-    border: 1px solid #286b45;
-}
-
-.hero-card {
-    width: 380px;
-    background: white;
-    border-radius: 25px;
-    padding: 25px;
-    box-shadow: 0 20px 50px rgba(45,75,52,.15);
-}
-
-.hero-card h3 {
-    margin-bottom: 20px;
-}
-
-.mini-stat {
-    display: flex;
-    justify-content: space-between;
-    padding: 17px 0;
-    border-bottom: 1px solid #edf0eb;
-}
-
-.mini-stat strong {
-    color: #286b45;
-}
-
-/* GENERAL */
-.section {
-    padding: 75px 7%;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 45px;
-}
-
-.section-title h2 {
-    font-size: 38px;
-    margin-bottom: 10px;
-}
-
-.section-title p {
-    color: #687168;
-    font-size: 17px;
-}
-
-/* FEATURES */
-.features {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.feature {
-    background: white;
-    padding: 28px;
-    border-radius: 18px;
-    border: 1px solid #e8ece4;
-    transition: .3s;
-}
-
-.feature:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 15px 35px rgba(0,0,0,.08);
-}
-
-.icon {
-    width: 55px;
-    height: 55px;
-    background: #edf6e8;
-    display: grid;
-    place-items: center;
-    border-radius: 15px;
-    font-size: 27px;
-    margin-bottom: 18px;
-}
-
-.feature h3 {
-    margin-bottom: 9px;
-}
-
-.feature p {
-    color: #687168;
-    line-height: 1.6;
-}
-
-/* MARKETPLACE */
-.market-section {
-    background: #eef5e9;
-}
-
-.search-box {
-    max-width: 600px;
-    margin: 0 auto 35px;
-    display: flex;
-}
-
-.search-box input {
-    flex: 1;
-    padding: 15px;
-    border: 1px solid #d8dfd5;
-    border-radius: 10px 0 0 10px;
-    outline: none;
-    font-size: 15px;
-}
-
-.search-box button {
-    background: #286b45;
-    color: white;
-    border: none;
-    padding: 0 22px;
-    border-radius: 0 10px 10px 0;
-}
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-}
-
-.product {
-    background: white;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 5px 18px rgba(0,0,0,.06);
-}
-
-.product-img {
-    height: 170px;
-    display: grid;
-    place-items: center;
-    font-size: 70px;
-    background: #f4ead7;
-}
-
-.product-info {
-    padding: 20px;
-}
-
-.product-info h3 {
-    margin-bottom: 8px;
-}
-
-.location {
-    color: #7a817b;
-    font-size: 14px;
-    margin-bottom: 12px;
-}
-
-.price {
-    font-size: 20px;
-    font-weight: 800;
-    color: #286b45;
-}
-
-.buy-btn {
-    width: 100%;
-    margin-top: 14px;
-    padding: 11px;
-    background: #286b45;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* DASHBOARD */
-.dashboard {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 25px;
-}
-
-.dashboard-card {
-    background: white;
-    padding: 28px;
-    border-radius: 20px;
-    border: 1px solid #e8ece4;
-}
-
-.dashboard-card h3 {
-    margin-bottom: 22px;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
-.stat {
-    background: #f3f7ef;
-    padding: 20px;
-    border-radius: 14px;
-}
-
-.stat small {
-    color: #727a73;
-}
-
-.stat h2 {
-    margin-top: 7px;
-    color: #286b45;
-}
-
-.chart {
-    height: 180px;
-    display: flex;
-    align-items: end;
-    justify-content: space-around;
-    gap: 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-.bar {
-    width: 12%;
-    background: #77a66b;
-    border-radius: 7px 7px 0 0;
-}
-
-/* ORDER TRACKING */
-.tracking {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
-    position: relative;
-}
-
-.track-step {
-    text-align: center;
-    width: 20%;
-    position: relative;
-}
-
-.track-icon {
-    width: 40px;
-    height: 40px;
-    margin: auto;
-    background: #286b45;
-    color: white;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-}
-
-.track-step p {
-    font-size: 12px;
-    margin-top: 8px;
-}
-
-/* SUPPORT */
-.support {
-    background: #286b45;
-    color: white;
-}
-
-.support-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.support p {
-    line-height: 1.7;
-    margin-top: 15px;
-    color: #e0eadf;
-}
-
-.support-box {
-    background: white;
-    color: #26382b;
-    padding: 28px;
-    border-radius: 18px;
-}
-
-.support-box input,
-.support-box textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.support-box textarea {
-    height: 100px;
-    resize: none;
-}
-
-.submit {
-    width: 100%;
-    padding: 12px;
-    background: #d28a25;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* CTA */
-.cta {
-    text-align: center;
-    background: #f1eadc;
-}
-
-.cta h2 {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
-.cta p {
-    color: #656b65;
-    margin-bottom: 25px;
-}
-
-/* FOOTER */
-footer {
-    background: #1d3024;
-    color: white;
-    padding: 35px 7%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-footer p {
-    color: #b9c4ba;
-}
-
-/* TOAST */
-.toast {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #1d3024;
-    color: white;
-    padding: 15px 22px;
-    border-radius: 10px;
-    display: none;
-    z-index: 2000;
-}
-
-/* MOBILE */
-@media(max-width: 900px) {
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero {
-        flex-direction: column;
-        gap: 45px;
-        text-align: center;
-    }
-
-    .hero-card {
-        width: 100%;
-        max-width: 380px;
-    }
-
-    .features,
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .dashboard,
-    .support-content {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media(max-width: 550px) {
-
-    .features,
-    .products,
-    .stats {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        padding: 55px 5%;
-    }
-
-    .section {
-        padding: 55px 5%;
-    }
-
-    .navbar {
-        padding: 0 4%;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GramBiz | Rural Marketplace</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
+
 <nav class="navbar">
 
     <div class="logo">
-        🌾 Gram<span>Biz</span>
+        🌾 <span>Gram</span>Biz
     </div>
 
-    <ul class="nav-links">
-        <li><a href="#home" data-en="Home" data-hi="होम">Home</a></li>
-        <li><a href="#features" data-en="Features" data-hi="सुविधाएँ">Features</a></li>
-        <li><a href="#marketplace" data-en="Marketplace" data-hi="बाज़ार">Marketplace</a></li>
-        <li><a href="#dashboard" data-en="Dashboard" data-hi="डैशबोर्ड">Dashboard</a></li>
-        <li><a href="#support" data-en="Support" data-hi="सहायता">Support</a></li>
-    </ul>
+    <div class="nav-links">
+        <a href="#home" data-en="Home" data-hi="होम">Home</a>
+        <a href="#features" data-en="Features" data-hi="सुविधाएँ">Features</a>
+        <a href="#marketplace" data-en="Marketplace" data-hi="बाज़ार">Marketplace</a>
+        <a href="#support" data-en="Support" data-hi="सहायता">Support</a>
+    </div>
 
-    <div class="nav-right">
-        <button class="lang-btn" onclick="toggleLanguage()">
-            <span id="languageText">हिंदी</span>
+    <div class="nav-actions">
+
+        <button id="languageBtn" onclick="toggleLanguage()">
+            हिंदी
         </button>
 
-        <div class="cart">
-            🛒 <span id="cartCount">0</span>
-        </div>
+        <button class="login-btn" onclick="openAuth()"
+                data-en="Login / Sign Up"
+                data-hi="लॉगिन / साइन अप">
+            Login / Sign Up
+        </button>
+
     </div>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- ================= HOME ================= -->
+
 <section class="hero" id="home">
 
-    <div class="hero-text">
+    <div class="hero-content">
 
-        <div class="tag"
-             data-en="🌱 Built for Rural Entrepreneurs"
-             data-hi="🌱 ग्रामीण उद्यमियों के लिए बनाया गया">
-            🌱 Built for Rural Entrepreneurs
-        </div>
+        <span class="tag"
+              data-en="🌱 Digital Platform for Rural Entrepreneurs"
+              data-hi="🌱 ग्रामीण उद्यमियों के लिए डिजिटल प्लेटफ़ॉर्म">
+            🌱 Digital Platform for Rural Entrepreneurs
+        </span>
 
         <h1>
             <span data-en="From Local Roots"
@@ -596,30 +60,34 @@ footer p {
             </span>
             <br>
 
-            <span data-en="to Wider Markets."
+            <span class="green"
+                  data-en="to Wider Markets."
                   data-hi="बड़े बाज़ारों तक।">
                 to Wider Markets.
             </span>
         </h1>
 
-        <p data-en="One simple digital platform for rural entrepreneurs to sell products, receive payments, manage logistics and connect with customers."
-           data-hi="ग्रामीण उद्यमियों के लिए एक सरल डिजिटल प्लेटफ़ॉर्म जहाँ वे उत्पाद बेच सकते हैं, भुगतान प्राप्त कर सकते हैं, डिलीवरी संभाल सकते हैं और ग्राहकों से जुड़ सकते हैं।">
-            One simple digital platform for rural entrepreneurs to sell products,
-            receive payments, manage logistics and connect with customers.
+        <p data-en="GramBiz connects rural entrepreneurs with customers through one simple platform for selling, payments, logistics and customer support."
+           data-hi="GramBiz ग्रामीण उद्यमियों को बिक्री, भुगतान, लॉजिस्टिक्स और ग्राहक सहायता के लिए एक सरल डिजिटल प्लेटफ़ॉर्म के माध्यम से ग्राहकों से जोड़ता है।">
+            GramBiz connects rural entrepreneurs with customers through one simple platform for selling, payments, logistics and customer support.
         </p>
 
-        <div class="buttons">
-            <a href="#marketplace" class="btn primary"
-               data-en="Explore Marketplace"
-               data-hi="बाज़ार देखें">
-                Explore Marketplace
-            </a>
+        <div class="hero-buttons">
 
-            <a href="#dashboard" class="btn secondary"
-               data-en="Entrepreneur Dashboard"
-               data-hi="उद्यमी डैशबोर्ड">
-                Entrepreneur Dashboard
-            </a>
+            <button class="primary-btn"
+                    onclick="openRegister('seller')"
+                    data-en="👩‍🌾 Start Selling"
+                    data-hi="👩‍🌾 बिक्री शुरू करें">
+                👩‍🌾 Start Selling
+            </button>
+
+            <button class="secondary-btn"
+                    onclick="scrollToMarketplace()"
+                    data-en="🛍️ Explore Products"
+                    data-hi="🛍️ उत्पाद देखें">
+                🛍️ Explore Products
+            </button>
+
         </div>
 
     </div>
@@ -627,41 +95,29 @@ footer p {
 
     <div class="hero-card">
 
-        <h3 data-en="📊 Business at a Glance"
-            data-hi="📊 व्यवसाय की एक झलक">
-            📊 Business at a Glance
-        </h3>
+        <div class="hero-icon">🌾</div>
 
-        <div class="mini-stat">
-            <span data-en="Monthly Revenue"
-                  data-hi="मासिक आय">
-                Monthly Revenue
+        <h2>GramBiz</h2>
+
+        <p data-en="One platform. Bigger opportunities."
+           data-hi="एक प्लेटफ़ॉर्म। बड़े अवसर।">
+            One platform. Bigger opportunities.
+        </p>
+
+        <div class="hero-stat">
+            <strong>10K+</strong>
+            <span data-en="Rural Entrepreneurs"
+                  data-hi="ग्रामीण उद्यमी">
+                Rural Entrepreneurs
             </span>
-            <strong>₹68,400</strong>
         </div>
 
-        <div class="mini-stat">
-            <span data-en="Orders"
-                  data-hi="ऑर्डर">
-                Orders
+        <div class="hero-stat">
+            <strong>25K+</strong>
+            <span data-en="Products"
+                  data-hi="उत्पाद">
+                Products
             </span>
-            <strong>127</strong>
-        </div>
-
-        <div class="mini-stat">
-            <span data-en="Customers"
-                  data-hi="ग्राहक">
-                Customers
-            </span>
-            <strong>94</strong>
-        </div>
-
-        <div class="mini-stat">
-            <span data-en="Growth"
-                  data-hi="वृद्धि">
-                Growth
-            </span>
-            <strong>+32%</strong>
         </div>
 
     </div>
@@ -669,74 +125,77 @@ footer p {
 </section>
 
 
-<!-- FEATURES -->
+<!-- ================= FEATURES ================= -->
+
 <section class="section" id="features">
 
     <div class="section-title">
 
-        <h2 data-en="Everything in One Place"
-            data-hi="सब कुछ एक ही जगह">
-            Everything in One Place
+        <span>WHY GRAMBIZ?</span>
+
+        <h2 data-en="Everything Rural Businesses Need"
+            data-hi="ग्रामीण व्यवसायों के लिए सभी सुविधाएँ">
+            Everything Rural Businesses Need
         </h2>
 
-        <p data-en="A complete digital ecosystem designed for rural businesses."
-           data-hi="ग्रामीण व्यवसायों के लिए बनाया गया एक संपूर्ण डिजिटल प्लेटफ़ॉर्म।">
-            A complete digital ecosystem designed for rural businesses.
+        <p data-en="One platform to manage your complete digital business."
+           data-hi="अपने पूरे डिजिटल व्यवसाय को एक ही प्लेटफ़ॉर्म से संभालें।">
+            One platform to manage your complete digital business.
         </p>
 
     </div>
 
 
-    <div class="features">
+    <div class="feature-grid">
 
-        <div class="feature">
-            <div class="icon">🛍️</div>
-            <h3 data-en="Sell Online"
-                data-hi="ऑनलाइन बेचें">
-                Sell Online
+        <div class="feature-card">
+            <div class="feature-icon">🛍️</div>
+            <h3 data-en="Digital Store"
+                data-hi="डिजिटल दुकान">
+                Digital Store
             </h3>
-            <p data-en="Create your digital store and reach customers beyond your village."
-               data-hi="अपनी डिजिटल दुकान बनाएं और अपने गाँव से बाहर के ग्राहकों तक पहुँचें।">
-                Create your digital store and reach customers beyond your village.
+            <p data-en="Create your own online catalog and showcase products."
+               data-hi="अपनी ऑनलाइन कैटलॉग बनाएं और उत्पाद प्रदर्शित करें।">
+                Create your own online catalog and showcase products.
             </p>
         </div>
 
 
-        <div class="feature">
-            <div class="icon">💳</div>
-            <h3 data-en="Digital Payments"
-                data-hi="डिजिटल भुगतान">
-                Digital Payments
+        <div class="feature-card">
+            <div class="feature-icon">💳</div>
+            <h3 data-en="Easy Payments"
+                data-hi="आसान भुगतान">
+                Easy Payments
             </h3>
-            <p data-en="Accept digital payments and keep track of your business earnings."
-               data-hi="डिजिटल भुगतान स्वीकार करें और अपनी आय का रिकॉर्ड रखें।">
-                Accept digital payments and keep track of your business earnings.
+            <p data-en="Make digital transactions simple and accessible."
+               data-hi="डिजिटल लेनदेन को आसान और सुलभ बनाएं।">
+                Make digital transactions simple and accessible.
             </p>
         </div>
 
 
-        <div class="feature">
-            <div class="icon">🚚</div>
-            <h3 data-en="Easy Logistics"
-                data-hi="आसान डिलीवरी">
-                Easy Logistics
+        <div class="feature-card">
+            <div class="feature-icon">🚚</div>
+            <h3 data-en="Logistics"
+                data-hi="लॉजिस्टिक्स">
+                Logistics
             </h3>
-            <p data-en="Manage deliveries and track every order from pickup to doorstep."
-               data-hi="डिलीवरी संभालें और हर ऑर्डर को पिकअप से ग्राहक के घर तक ट्रैक करें।">
-                Manage deliveries and track every order from pickup to doorstep.
+            <p data-en="Track orders and deliveries from one place."
+               data-hi="ऑर्डर और डिलीवरी को एक ही जगह ट्रैक करें।">
+                Track orders and deliveries from one place.
             </p>
         </div>
 
 
-        <div class="feature">
-            <div class="icon">💬</div>
+        <div class="feature-card">
+            <div class="feature-icon">💬</div>
             <h3 data-en="Customer Support"
                 data-hi="ग्राहक सहायता">
                 Customer Support
             </h3>
-            <p data-en="Connect with customers, solve problems and build long-term trust."
-               data-hi="ग्राहकों से जुड़ें, समस्याएँ हल करें और लंबे समय का विश्वास बनाएं।">
-                Connect with customers, solve problems and build long-term trust.
+            <p data-en="Connect with customers and build trust."
+               data-hi="ग्राहकों से जुड़ें और विश्वास बनाएँ।">
+                Connect with customers and build trust.
             </p>
         </div>
 
@@ -745,492 +204,1075 @@ footer p {
 </section>
 
 
-<!-- MARKETPLACE -->
-<section class="section market-section" id="marketplace">
+<!-- ================= MARKETPLACE ================= -->
+
+<section class="marketplace section" id="marketplace">
 
     <div class="section-title">
 
-        <h2 data-en="🌾 Rural Marketplace"
-            data-hi="🌾 ग्रामीण बाज़ार">
-            🌾 Rural Marketplace
+        <span>GRAMBIZ MARKETPLACE</span>
+
+        <h2 data-en="Discover Rural Products"
+            data-hi="ग्रामीण उत्पाद खोजें">
+            Discover Rural Products
         </h2>
 
-        <p data-en="Discover authentic products directly from rural entrepreneurs."
-           data-hi="ग्रामीण उद्यमियों से सीधे असली उत्पाद खरीदें।">
-            Discover authentic products directly from rural entrepreneurs.
+        <p data-en="Buy directly from rural entrepreneurs."
+           data-hi="ग्रामीण उद्यमियों से सीधे खरीदें।">
+            Buy directly from rural entrepreneurs.
         </p>
 
     </div>
 
 
-    <div class="search-box">
+    <div class="market-controls">
+
         <input type="text"
-               id="searchInput"
-               placeholder="Search products..."
-               onkeyup="searchProducts()">
+               id="searchBox"
+               placeholder="🔍 Search products..."
+               oninput="renderProducts()">
 
-        <button>🔍</button>
-    </div>
+        <select id="categoryFilter"
+                onchange="renderProducts()">
 
+            <option value="all">All Categories</option>
+            <option value="Handicrafts">Handicrafts</option>
+            <option value="Food">Food Products</option>
+            <option value="Textiles">Textiles</option>
+            <option value="Agriculture">Agriculture</option>
+            <option value="Other">Other</option>
 
-    <div class="products" id="productList">
-
-        <div class="product" data-name="honey">
-
-            <div class="product-img">🍯</div>
-
-            <div class="product-info">
-
-                <h3 data-en="Pure Village Honey"
-                    data-hi="शुद्ध गाँव का शहद">
-                    Pure Village Honey
-                </h3>
-
-                <div class="location">
-                    📍 Maharashtra
-                </div>
-
-                <div class="price">₹450</div>
-
-                <button class="buy-btn" onclick="addToCart()"
-                        data-en="Add to Cart"
-                        data-hi="कार्ट में जोड़ें">
-                    Add to Cart
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="product" data-name="basket">
-
-            <div class="product-img">🧺</div>
-
-            <div class="product-info">
-
-                <h3 data-en="Handmade Bamboo Basket"
-                    data-hi="हस्तनिर्मित बाँस की टोकरी">
-                    Handmade Bamboo Basket
-                </h3>
-
-                <div class="location">
-                    📍 Rajasthan
-                </div>
-
-                <div class="price">₹650</div>
-
-                <button class="buy-btn" onclick="addToCart()"
-                        data-en="Add to Cart"
-                        data-hi="कार्ट में जोड़ें">
-                    Add to Cart
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="product" data-name="shawl">
-
-            <div class="product-img">🧣</div>
-
-            <div class="product-info">
-
-                <h3 data-en="Handwoven Shawl"
-                    data-hi="हाथ से बुनी शॉल">
-                    Handwoven Shawl
-                </h3>
-
-                <div class="location">
-                    📍 Himachal Pradesh
-                </div>
-
-                <div class="price">₹1,200</div>
-
-                <button class="buy-btn" onclick="addToCart()"
-                        data-en="Add to Cart"
-                        data-hi="कार्ट में जोड़ें">
-                    Add to Cart
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="product" data-name="pickle">
-
-            <div class="product-img">🥭</div>
-
-            <div class="product-info">
-
-                <h3 data-en="Homemade Mango Pickle"
-                    data-hi="घर का बना आम का अचार">
-                    Homemade Mango Pickle
-                </h3>
-
-                <div class="location">
-                    📍 Gujarat
-                </div>
-
-                <div class="price">₹280</div>
-
-                <button class="buy-btn" onclick="addToCart()"
-                        data-en="Add to Cart"
-                        data-hi="कार्ट में जोड़ें">
-                    Add to Cart
-                </button>
-
-            </div>
-
-        </div>
+        </select>
 
     </div>
+
+
+    <div id="productGrid" class="product-grid"></div>
 
 </section>
 
 
-<!-- DASHBOARD -->
-<section class="section" id="dashboard">
+<!-- ================= SUPPORT ================= -->
 
-    <div class="section-title">
-
-        <h2 data-en="📊 Entrepreneur Dashboard"
-            data-hi="📊 उद्यमी डैशबोर्ड">
-            📊 Entrepreneur Dashboard
-        </h2>
-
-        <p data-en="Track your business and make better decisions."
-           data-hi="अपने व्यवसाय को ट्रैक करें और बेहतर निर्णय लें।">
-            Track your business and make better decisions.
-        </p>
-
-    </div>
-
-
-    <div class="dashboard">
-
-        <div class="dashboard-card">
-
-            <h3 data-en="Business Overview"
-                data-hi="व्यवसाय का अवलोकन">
-                Business Overview
-            </h3>
-
-            <div class="stats">
-
-                <div class="stat">
-                    <small data-en="Revenue"
-                           data-hi="आय">
-                        Revenue
-                    </small>
-                    <h2>₹68.4K</h2>
-                </div>
-
-                <div class="stat">
-                    <small data-en="Orders"
-                           data-hi="ऑर्डर">
-                        Orders
-                    </small>
-                    <h2>127</h2>
-                </div>
-
-                <div class="stat">
-                    <small data-en="Customers"
-                           data-hi="ग्राहक">
-                        Customers
-                    </small>
-                    <h2>94</h2>
-                </div>
-
-            </div>
-
-            <br>
-
-            <h3 data-en="Monthly Sales"
-                data-hi="मासिक बिक्री">
-                Monthly Sales
-            </h3>
-
-            <div class="chart">
-                <div class="bar" style="height:40%"></div>
-                <div class="bar" style="height:52%"></div>
-                <div class="bar" style="height:45%"></div>
-                <div class="bar" style="height:68%"></div>
-                <div class="bar" style="height:60%"></div>
-                <div class="bar" style="height:82%"></div>
-            </div>
-
-        </div>
-
-
-        <div class="dashboard-card">
-
-            <h3 data-en="🚚 Order Tracking"
-                data-hi="🚚 ऑर्डर ट्रैकिंग">
-                🚚 Order Tracking
-            </h3>
-
-            <p>
-                <strong>#GB1024</strong>
-                <br>
-                <span data-en="Handmade Bamboo Basket"
-                      data-hi="हस्तनिर्मित बाँस की टोकरी">
-                    Handmade Bamboo Basket
-                </span>
-            </p>
-
-            <div class="tracking">
-
-                <div class="track-step">
-                    <div class="track-icon">✓</div>
-                    <p data-en="Placed" data-hi="ऑर्डर">Placed</p>
-                </div>
-
-                <div class="track-step">
-                    <div class="track-icon">✓</div>
-                    <p data-en="Packed" data-hi="पैक किया">Packed</p>
-                </div>
-
-                <div class="track-step">
-                    <div class="track-icon">✓</div>
-                    <p data-en="Shipped" data-hi="भेजा गया">Shipped</p>
-                </div>
-
-                <div class="track-step">
-                    <div class="track-icon">🚚</div>
-                    <p data-en="Transit" data-hi="रास्ते में">Transit</p>
-                </div>
-
-                <div class="track-step">
-                    <div class="track-icon">•</div>
-                    <p data-en="Delivered" data-hi="डिलीवर">Delivered</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- SUPPORT -->
-<section class="section support" id="support">
+<section class="support-section" id="support">
 
     <div class="support-content">
 
-        <div>
+        <span>GRAMBIZ SUPPORT</span>
 
-            <h2 data-en="Need Help Growing Your Business?"
-                data-hi="अपने व्यवसाय को बढ़ाने में मदद चाहिए?">
-                Need Help Growing Your Business?
-            </h2>
+        <h2 data-en="Need Help?"
+            data-hi="मदद चाहिए?">
+            Need Help?
+        </h2>
 
-            <p data-en="Connect with our support team for help with orders, payments, logistics or your digital store."
-               data-hi="ऑर्डर, भुगतान, डिलीवरी या अपनी डिजिटल दुकान से जुड़ी सहायता के लिए हमारी टीम से संपर्क करें।">
-                Connect with our support team for help with orders,
-                payments, logistics or your digital store.
-            </p>
+        <p data-en="We are here to help rural entrepreneurs and customers."
+           data-hi="हम ग्रामीण उद्यमियों और ग्राहकों की सहायता के लिए यहाँ हैं।">
+            We are here to help rural entrepreneurs and customers.
+        </p>
 
-            <br>
+        <div class="support-points">
 
-            <h3>📞 1800-123-GRAM</h3>
-            <br>
-            <h3>💬 WhatsApp Support</h3>
+            <div>📞 1800-123-GRAM</div>
+            <div>💬 WhatsApp Support</div>
+            <div>📧 support@grambiz.demo</div>
+
+        </div>
+
+    </div>
+
+
+    <div class="support-box">
+
+        <h3 data-en="Contact Support"
+            data-hi="सहायता से संपर्क करें">
+            Contact Support
+        </h3>
+
+        <input id="supportName"
+               placeholder="Your Name">
+
+        <input id="supportEmail"
+               placeholder="Email">
+
+        <textarea id="supportMessage"
+                  placeholder="How can we help?"></textarea>
+
+        <button onclick="submitSupport()"
+                data-en="Send Request"
+                data-hi="अनुरोध भेजें">
+            Send Request
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        🌾 GramBiz
+    </div>
+
+    <p>
+        From Local Roots to Wider Markets.
+    </p>
+
+    <p>
+        © 2026 GramBiz
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     AUTH MODAL
+===================================================== -->
+
+<div id="authModal" class="modal-overlay hidden">
+
+    <div class="auth-modal">
+
+        <button class="close-btn"
+                onclick="closeAuth()">
+            ×
+        </button>
+
+
+        <div id="roleScreen">
+
+            <div class="auth-header">
+
+                <div class="auth-logo">🌾</div>
+
+                <h2 data-en="Welcome to GramBiz"
+                    data-hi="GramBiz में आपका स्वागत है">
+                    Welcome to GramBiz
+                </h2>
+
+                <p data-en="Choose how you want to continue"
+                   data-hi="आप किस रूप में आगे बढ़ना चाहते हैं">
+                    Choose how you want to continue
+                </p>
+
+            </div>
+
+
+            <div class="role-grid">
+
+                <button onclick="chooseRole('seller')">
+
+                    <div>👩‍🌾</div>
+
+                    <h3 data-en="Seller"
+                        data-hi="विक्रेता">
+                        Seller
+                    </h3>
+
+                    <p data-en="Sell your products"
+                       data-hi="अपने उत्पाद बेचें">
+                        Sell your products
+                    </p>
+
+                </button>
+
+
+                <button onclick="chooseRole('buyer')">
+
+                    <div>🛍️</div>
+
+                    <h3 data-en="Buyer"
+                        data-hi="खरीदार">
+                        Buyer
+                    </h3>
+
+                    <p data-en="Discover products"
+                       data-hi="उत्पाद खरीदें">
+                        Discover products
+                    </p>
+
+                </button>
+
+            </div>
 
         </div>
 
 
-        <div class="support-box">
+        <!-- LOGIN -->
 
-            <h3 data-en="Send a Support Request"
-                data-hi="सहायता अनुरोध भेजें">
-                Send a Support Request
-            </h3>
+        <div id="loginScreen" class="hidden">
 
-            <input type="text"
-                   placeholder="Your Name"
-                   id="supportName">
+            <div class="auth-header">
 
-            <input type="text"
-                   placeholder="Mobile Number">
+                <div id="loginRoleIcon"
+                     class="auth-logo">
+                    👩‍🌾
+                </div>
 
-            <textarea
-                placeholder="How can we help you?"></textarea>
+                <h2 id="loginTitle">
+                    Seller Login
+                </h2>
 
-            <button class="submit" onclick="submitSupport()"
-                    data-en="Submit Request"
-                    data-hi="अनुरोध भेजें">
-                Submit Request
+                <p>Login to your GramBiz account</p>
+
+            </div>
+
+
+            <form onsubmit="login(event)">
+
+                <label>Email or Mobile</label>
+
+                <input id="loginIdentifier"
+                       required
+                       placeholder="Enter email or mobile">
+
+
+                <label>Password</label>
+
+                <input id="loginPassword"
+                       type="password"
+                       required
+                       placeholder="Enter password">
+
+
+                <button class="full-btn">
+                    Login
+                </button>
+
+            </form>
+
+
+            <p class="auth-switch">
+                New to GramBiz?
+                <span onclick="showRegister()">
+                    Create Account
+                </span>
+            </p>
+
+            <p class="back-role"
+               onclick="backToRole()">
+                ← Choose another account type
+            </p>
+
+        </div>
+
+
+        <!-- REGISTER -->
+
+        <div id="registerScreen" class="hidden">
+
+            <div class="auth-header">
+
+                <div id="registerRoleIcon"
+                     class="auth-logo">
+                    👩‍🌾
+                </div>
+
+                <h2 id="registerTitle">
+                    Create Seller Account
+                </h2>
+
+                <p>
+                    Join GramBiz today
+                </p>
+
+            </div>
+
+
+            <form onsubmit="register(event)">
+
+                <label>Full Name *</label>
+
+                <input id="regName"
+                       required
+                       placeholder="Enter your full name">
+
+
+                <!-- SELLER ONLY -->
+
+                <div id="sellerFields">
+
+                    <label>Business Name *</label>
+
+                    <input id="businessName"
+                           placeholder="Your business name">
+
+
+                    <label>GSTIN (Optional)</label>
+
+                    <input id="gstin"
+                           placeholder="GSTIN number">
+
+
+                    <label>Business Category</label>
+
+                    <select id="businessCategory">
+
+                        <option>Handicrafts</option>
+                        <option>Food</option>
+                        <option>Textiles</option>
+                        <option>Agriculture</option>
+                        <option>Other</option>
+
+                    </select>
+
+
+                    <label>Business Location</label>
+
+                    <input id="businessLocation"
+                           placeholder="Village / City, State">
+
+                </div>
+
+
+                <label>Mobile Number *</label>
+
+                <input id="regMobile"
+                       required
+                       placeholder="+91 XXXXX XXXXX">
+
+
+                <label>Email *</label>
+
+                <input id="regEmail"
+                       type="email"
+                       required
+                       placeholder="your@email.com">
+
+
+                <!-- BUYER ONLY -->
+
+                <div id="buyerFields" class="hidden">
+
+                    <label>Delivery Address</label>
+
+                    <textarea id="buyerAddress"
+                              placeholder="Enter delivery address"></textarea>
+
+
+                    <label>City</label>
+
+                    <input id="buyerCity"
+                           placeholder="City">
+
+
+                    <label>State</label>
+
+                    <input id="buyerState"
+                           placeholder="State">
+
+
+                    <label>PIN Code</label>
+
+                    <input id="buyerPin"
+                           placeholder="PIN Code">
+
+                </div>
+
+
+                <label>Password *</label>
+
+                <input id="regPassword"
+                       type="password"
+                       required
+                       placeholder="Create password">
+
+
+                <label>Confirm Password *</label>
+
+                <input id="confirmPassword"
+                       type="password"
+                       required
+                       placeholder="Confirm password">
+
+
+                <button class="full-btn">
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <p class="auth-switch">
+                Already have an account?
+                <span onclick="showLogin()">
+                    Login
+                </span>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SELLER DASHBOARD
+===================================================== -->
+
+<div id="sellerDashboard"
+     class="dashboard hidden">
+
+    <div class="dashboard-top">
+
+        <div class="dashboard-logo">
+            🌾 GramBiz
+        </div>
+
+        <div>
+
+            <span id="sellerWelcome"></span>
+
+            <button onclick="logout()"
+                    class="logout-btn">
+                Logout
             </button>
 
         </div>
 
     </div>
 
-</section>
+
+    <div class="dashboard-layout">
+
+        <aside class="sidebar">
+
+            <button class="side-active"
+                    onclick="sellerSection('overview')">
+                📊 Overview
+            </button>
+
+            <button onclick="sellerSection('catalog')">
+                📦 My Catalog
+            </button>
+
+            <button onclick="sellerSection('orders')">
+                🛒 Orders
+            </button>
+
+            <button onclick="sellerSection('payments')">
+                💳 Payments
+            </button>
+
+            <button onclick="sellerSection('logistics')">
+                🚚 Logistics
+            </button>
+
+            <button onclick="sellerSection('profile')">
+                👤 My Profile
+            </button>
+
+            <button onclick="sellerSection('support')">
+                💬 Support
+            </button>
+
+        </aside>
 
 
-<!-- CTA -->
-<section class="section cta">
+        <main class="dashboard-main">
 
-    <h2 data-en="Ready to Grow Beyond Your Village?"
-        data-hi="अपने गाँव से आगे बढ़ने के लिए तैयार हैं?">
-        Ready to Grow Beyond Your Village?
-    </h2>
+            <!-- OVERVIEW -->
 
-    <p data-en="Join a digital ecosystem designed to help rural entrepreneurs sell, earn and grow."
-       data-hi="ग्रामीण उद्यमियों को बेचने, कमाने और बढ़ने में मदद करने वाले डिजिटल प्लेटफ़ॉर्म से जुड़ें।">
-        Join a digital ecosystem designed to help rural entrepreneurs sell, earn and grow.
-    </p>
+            <div id="sellerOverview">
 
-    <button class="btn primary" onclick="startBusiness()"
-            data-en="🚀 Start Your Business"
-            data-hi="🚀 अपना व्यवसाय शुरू करें">
-        🚀 Start Your Business
-    </button>
+                <h1>Seller Dashboard</h1>
 
-</section>
+                <p class="dashboard-subtitle">
+                    Manage your business from one place.
+                </p>
 
 
-<!-- FOOTER -->
-<footer>
+                <div class="stats-grid">
 
-    <div>
-        <div class="logo">🌾 Gram<span>Biz</span></div>
-        <p data-en="Empowering rural entrepreneurship through technology."
-           data-hi="तकनीक के माध्यम से ग्रामीण उद्यमिता को सशक्त बनाना।">
-            Empowering rural entrepreneurship through technology.
+                    <div>
+                        <span>📦 Products</span>
+                        <strong id="sellerProductCount">0</strong>
+                    </div>
+
+                    <div>
+                        <span>🛒 Orders</span>
+                        <strong id="sellerOrderCount">0</strong>
+                    </div>
+
+                    <div>
+                        <span>💰 Revenue</span>
+                        <strong id="sellerRevenue">₹0</strong>
+                    </div>
+
+                    <div>
+                        <span>👥 Customers</span>
+                        <strong id="sellerCustomers">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-panels">
+
+                    <div class="dash-panel">
+
+                        <h3>🚀 Grow Your Business</h3>
+
+                        <p>
+                            Add products to your catalog and start reaching customers beyond your local market.
+                        </p>
+
+                        <button onclick="sellerSection('catalog')"
+                                class="primary-btn">
+                            + Add Product
+                        </button>
+
+                    </div>
+
+
+                    <div class="dash-panel">
+
+                        <h3>📢 Platform Tip</h3>
+
+                        <p>
+                            Upload clear product photos and detailed descriptions to build customer trust.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CATALOG -->
+
+            <div id="sellerCatalog"
+                 class="seller-section hidden">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h1>My Catalog</h1>
+
+                        <p>
+                            Add and manage your products.
+                        </p>
+
+                    </div>
+
+                    <button class="primary-btn"
+                            onclick="openProductForm()">
+                        + Add Product
+                    </button>
+
+                </div>
+
+
+                <div id="sellerProductList"
+                     class="seller-products">
+                </div>
+
+            </div>
+
+
+            <!-- ORDERS -->
+
+            <div id="sellerOrders"
+                 class="seller-section hidden">
+
+                <h1>Orders</h1>
+
+                <div id="sellerOrdersList"
+                     class="orders-list">
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENTS -->
+
+            <div id="sellerPayments"
+                 class="seller-section hidden">
+
+                <h1>Payments</h1>
+
+                <div class="payment-card">
+
+                    <div>
+                        <span>Total Earnings</span>
+                        <strong id="paymentTotal">₹0</strong>
+                    </div>
+
+                    <div>
+                        <span>Pending</span>
+                        <strong>₹0</strong>
+                    </div>
+
+                    <div>
+                        <span>Completed</span>
+                        <strong id="paymentCompleted">₹0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOGISTICS -->
+
+            <div id="sellerLogistics"
+                 class="seller-section hidden">
+
+                <h1>Logistics</h1>
+
+                <div class="logistics-card">
+
+                    <div class="track-step active">
+                        <b>1</b>
+                        <span>Order Placed</span>
+                    </div>
+
+                    <div class="track-step">
+                        <b>2</b>
+                        <span>Packed</span>
+                    </div>
+
+                    <div class="track-step">
+                        <b>3</b>
+                        <span>Shipped</span>
+                    </div>
+
+                    <div class="track-step">
+                        <b>4</b>
+                        <span>Delivered</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div id="sellerProfile"
+                 class="seller-section hidden">
+
+                <h1>My Profile</h1>
+
+                <div class="profile-card">
+
+                    <div class="profile-avatar">
+                        👩‍🌾
+                    </div>
+
+                    <h2 id="profileSellerName">
+                    </h2>
+
+                    <p id="profileBusinessName">
+                    </p>
+
+                    <hr>
+
+                    <div class="profile-info">
+
+                        <div>
+                            <span>📱 Mobile</span>
+                            <strong id="profileMobile"></strong>
+                        </div>
+
+                        <div>
+                            <span>📧 Email</span>
+                            <strong id="profileEmail"></strong>
+                        </div>
+
+                        <div>
+                            <span>🏷️ GSTIN</span>
+                            <strong id="profileGSTIN"></strong>
+                        </div>
+
+                        <div>
+                            <span>📍 Location</span>
+                            <strong id="profileLocation"></strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUPPORT -->
+
+            <div id="sellerSupport"
+                 class="seller-section hidden">
+
+                <h1>Customer Support</h1>
+
+                <div class="support-dashboard-card">
+
+                    <h3>💬 Need help?</h3>
+
+                    <p>
+                        Our support team can help you with orders, payments, logistics and catalog management.
+                    </p>
+
+                    <button class="primary-btn"
+                            onclick="alert('Support request submitted!')">
+                        Contact Support
+                    </button>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     BUYER DASHBOARD
+===================================================== -->
+
+<div id="buyerDashboard"
+     class="dashboard hidden">
+
+    <div class="dashboard-top">
+
+        <div class="dashboard-logo">
+            🌾 GramBiz
+        </div>
+
+        <div>
+
+            <span id="buyerWelcome"></span>
+
+            <button onclick="logout()"
+                    class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-layout">
+
+        <aside class="sidebar">
+
+            <button class="side-active"
+                    onclick="buyerSection('home')">
+                🏠 Home
+            </button>
+
+            <button onclick="buyerSection('orders')">
+                📦 My Orders
+            </button>
+
+            <button onclick="buyerSection('cart')">
+                🛒 My Cart
+            </button>
+
+            <button onclick="buyerSection('profile')">
+                👤 My Profile
+            </button>
+
+            <button onclick="scrollToMarketplace()">
+                🛍️ Marketplace
+            </button>
+
+            <button onclick="buyerSection('support')">
+                💬 Support
+            </button>
+
+        </aside>
+
+
+        <main class="dashboard-main">
+
+            <!-- BUYER HOME -->
+
+            <div id="buyerHome">
+
+                <div class="buyer-welcome">
+
+                    <span>WELCOME TO GRAMBIZ</span>
+
+                    <h1>
+                        Discover products from rural entrepreneurs.
+                    </h1>
+
+                    <button class="primary-btn"
+                            onclick="scrollToMarketplace()">
+                        Explore Marketplace
+                    </button>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div>
+                        <span>🛒 Cart Items</span>
+                        <strong id="buyerCartCount">0</strong>
+                    </div>
+
+                    <div>
+                        <span>📦 Orders</span>
+                        <strong id="buyerOrderCount">0</strong>
+                    </div>
+
+                    <div>
+                        <span>❤️ Wishlist</span>
+                        <strong>0</strong>
+                    </div>
+
+                    <div>
+                        <span>⭐ Reviews</span>
+                        <strong>0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUYER ORDERS -->
+
+            <div id="buyerOrders"
+                 class="buyer-section hidden">
+
+                <h1>My Orders</h1>
+
+                <div id="buyerOrdersList"
+                     class="orders-list">
+                </div>
+
+            </div>
+
+
+            <!-- BUYER CART -->
+
+            <div id="buyerCart"
+                 class="buyer-section hidden">
+
+                <h1>My Cart</h1>
+
+                <div id="cartList"></div>
+
+                <div id="cartTotal"
+                     class="cart-total">
+                </div>
+
+            </div>
+
+
+            <!-- BUYER PROFILE -->
+
+            <div id="buyerProfile"
+                 class="buyer-section hidden">
+
+                <h1>My Profile</h1>
+
+                <div class="profile-card">
+
+                    <div class="profile-avatar">
+                        🛍️
+                    </div>
+
+                    <h2 id="buyerProfileName">
+                    </h2>
+
+                    <div class="profile-info">
+
+                        <div>
+                            <span>📱 Mobile</span>
+                            <strong id="buyerProfileMobile"></strong>
+                        </div>
+
+                        <div>
+                            <span>📧 Email</span>
+                            <strong id="buyerProfileEmail"></strong>
+                        </div>
+
+                        <div>
+                            <span>📍 Address</span>
+                            <strong id="buyerProfileAddress"></strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUYER SUPPORT -->
+
+            <div id="buyerSupport"
+                 class="buyer-section hidden">
+
+                <h1>Customer Support</h1>
+
+                <div class="support-dashboard-card">
+
+                    <h3>💬 How can we help?</h3>
+
+                    <textarea
+                        placeholder="Describe your issue..."></textarea>
+
+                    <br><br>
+
+                    <button class="primary-btn"
+                            onclick="alert('Support request submitted!')">
+                        Submit Request
+                    </button>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PRODUCT FORM MODAL
+===================================================== -->
+
+<div id="productModal"
+     class="modal-overlay hidden">
+
+    <div class="product-modal">
+
+        <button class="close-btn"
+                onclick="closeProductForm()">
+            ×
+        </button>
+
+        <h2>📦 Add Product</h2>
+
+        <p>
+            Create your product catalog.
         </p>
+
+
+        <form onsubmit="addProduct(event)">
+
+            <label>Product Images *</label>
+
+            <input id="productImages"
+                   type="file"
+                   accept="image/*"
+                   multiple
+                   required>
+
+
+            <div id="imagePreview"
+                 class="image-preview">
+            </div>
+
+
+            <label>Product Name *</label>
+
+            <input id="productName"
+                   required
+                   placeholder="Example: Handmade Bamboo Basket">
+
+
+            <label>Category *</label>
+
+            <select id="productCategory">
+
+                <option>Handicrafts</option>
+                <option>Food</option>
+                <option>Textiles</option>
+                <option>Agriculture</option>
+                <option>Other</option>
+
+            </select>
+
+
+            <label>Description *</label>
+
+            <textarea id="productDescription"
+                      required
+                      placeholder="Describe your product"></textarea>
+
+
+            <div class="two-inputs">
+
+                <div>
+
+                    <label>Price ₹ *</label>
+
+                    <input id="productPrice"
+                           type="number"
+                           min="1"
+                           required>
+
+                </div>
+
+                <div>
+
+                    <label>Stock *</label>
+
+                    <input id="productStock"
+                           type="number"
+                           min="1"
+                           required>
+
+                </div>
+
+            </div>
+
+
+            <label>Weight</label>
+
+            <input id="productWeight"
+                   placeholder="Example: 500g">
+
+
+            <button class="full-btn">
+                🚀 Publish Product
+            </button>
+
+        </form>
+
     </div>
 
-    <div>
-        © 2026 GramBiz | Rural Digital Growth Platform
+</div>
+
+
+<!-- =====================================================
+     PRODUCT DETAILS
+===================================================== -->
+
+<div id="productDetailsModal"
+     class="modal-overlay hidden">
+
+    <div class="product-details-modal">
+
+        <button class="close-btn"
+                onclick="closeProductDetails()">
+            ×
+        </button>
+
+        <div id="productDetailsContent"></div>
+
     </div>
 
-</footer>
+</div>
 
 
-<div class="toast" id="toast"></div>
-
-
-<script>
-
-let currentLanguage = "en";
-let cartCount = 0;
-
-
-/* LANGUAGE */
-function toggleLanguage() {
-
-    currentLanguage = currentLanguage === "en" ? "hi" : "en";
-
-    document.querySelectorAll("[data-en]").forEach(element => {
-
-        element.innerText = element.getAttribute(
-            "data-" + currentLanguage
-        );
-
-    });
-
-    document.getElementById("languageText").innerText =
-        currentLanguage === "en" ? "हिंदी" : "English";
-
-}
-
-
-/* CART */
-function addToCart() {
-
-    cartCount++;
-
-    document.getElementById("cartCount").innerText = cartCount;
-
-    showToast(
-        currentLanguage === "en"
-        ? "✅ Product added to cart!"
-        : "✅ उत्पाद कार्ट में जोड़ दिया गया!"
-    );
-
-}
-
-
-/* SEARCH */
-function searchProducts() {
-
-    const search =
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase();
-
-    document.querySelectorAll(".product").forEach(product => {
-
-        const name = product.dataset.name;
-
-        product.style.display =
-            name.includes(search) ? "block" : "none";
-
-    });
-
-}
-
-
-/* SUPPORT */
-function submitSupport() {
-
-    const name =
-        document.getElementById("supportName").value;
-
-    if(name.trim() === "") {
-
-        showToast(
-            currentLanguage === "en"
-            ? "Please enter your name."
-            : "कृपया अपना नाम दर्ज करें।"
-        );
-
-        return;
-    }
-
-    showToast(
-        currentLanguage === "en"
-        ? "✅ Support request submitted successfully!"
-        : "✅ सहायता अनुरोध सफलतापूर्वक भेजा गया!"
-    );
-
-}
-
-
-/* START BUSINESS */
-function startBusiness() {
-
-    showToast(
-        currentLanguage === "en"
-        ? "🚀 Welcome! Your entrepreneur journey starts here."
-        : "🚀 स्वागत है! आपकी उद्यमी यात्रा यहाँ से शुरू होती है।"
-    );
-
-}
-
-
-/* TOAST */
-function showToast(message) {
-
-    const toast = document.getElementById("toast");
-
-    toast.innerText = message;
-    toast.style.display = "block";
-
-    setTimeout(() => {
-        toast.style.display = "none";
-    }, 2500);
-
-}
-
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>
